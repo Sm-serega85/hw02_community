@@ -1,7 +1,5 @@
 from django.db import models
-# Из модуля auth импортируем функцию get_user_model
 from django.contrib.auth import get_user_model
-# Create your models here.
 User = get_user_model()
 
 
@@ -24,7 +22,11 @@ class Post(models.Model):
     )
     group = models.ForeignKey(
         Group,
+        models.SET_NULL,
         blank=True,
         null=True,
-        on_delete=models.CASCADE
+        related_name='posts'
     )
+
+    def __str__(self):
+        return self.text
