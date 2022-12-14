@@ -3,10 +3,9 @@
   Записи сообщества {{ group.title }}
 {% endblock %} 
 {% block content %}
-  <h1>{{ group.title }}</h1>
-  <p>{{ group.description }}</p> 
+    <p>{{ group.description }}</p> 
     <div class="container"> 
-      <h1>Записи сообщества {{ group.title }}</h1> 
+      <h1>{{ group.title }}</h1>
       {% for post in posts %}
         <article> 
           <ul>
@@ -17,9 +16,9 @@
              Дата публикации: {{ post.pub_date|date:"d E Y" }}
             </li>
           </ul>
-          <p>{{ post.text }}</p>    
-          {% if not forloop.last %}<hr>{% endif %}
+          <p>{{ post.text }}</p>
         </article>
+        {% if not forloop.last %}<hr>{% endif %}
       {% endfor %}
     </div>
 {% endblock %}   
